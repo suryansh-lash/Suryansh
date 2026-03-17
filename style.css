@@ -461,7 +461,7 @@ section {
 }
 
 .project-description {
-    color: var(--neutral-600);
+    color: var(--neutral-500);
     line-height: 1.75;
     margin-bottom: 32px;
     font-size: 17px;
@@ -477,7 +477,7 @@ section {
 .project-tag {
     padding: 6px 16px;
     background: linear-gradient(135deg, var(--neutral-100), var(--neutral-200));
-    color: var(--neutral-700);
+    color: var(--neutral-400);
     border-radius: 20px;
     font-size: 14px;
     font-weight: 600;
