@@ -30,6 +30,12 @@
     
     /* TYPOGRAPHY */
     --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+   /* Add these for the profile image */
+    --lavender: #e8daf2;
+    --rose-gold: #f4c7ab;
+    --white: #ffffff;
+    --shadow: 0 40px 120px rgba(0,0,0,0.15);
 }
 
 * {
@@ -160,9 +166,41 @@ body {
     z-index: 1;
 }
 
+/* HERO CONTAINER - Add this to your existing .hero-container */
 .hero-container {
     position: relative;
     z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr 420px;  /* Text left, Image right */
+    gap: 80px;
+    align-items: center;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* RESPONSIVE - Add this media query */
+@media (max-width: 1024px) {
+    .hero-container {
+        grid-template-columns: 1fr;  /* Stack on tablet */
+        text-align: center;
+        gap: 60px;
+    }
+    
+    .profile-image-container,
+    .profile-image {
+        width: 300px !important;
+        height: 300px !important;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .profile-image-container,
+    .profile-image {
+        width: 260px !important;
+        height: 260px !important;
+    }
 }
 
 .hero-content {
@@ -258,24 +296,44 @@ body {
 }
 
 .profile-image {
-    width: 350px;
-    height: 350px;
-    background: linear-gradient(135deg, var(--lavender), var(--rose-gold));
+    width: 360px;
+    height: 360px;
     border-radius: 50%;
-    margin: 0 auto;
-    position: relative;
-    box-shadow: var(--shadow);
+    object-fit: cover;
+    object-position: center;
+    box-shadow: 
+        0 40px 120px rgba(0,0,0,0.15),
+        0 20px 40px rgba(0,0,0,0.1);
+    border: 8px solid rgba(255, 255, 255, 0.9);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.profile-image::before {
-    content: '';
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    right: 20px;
-    bottom: 20px;
-    background: var(--white);
+.profile-image:hover {
+    transform: scale(1.05) rotate(2deg);
+    box-shadow: 
+        0 60px 160px rgba(0,0,0,0.2),
+        0 30px 60px rgba(0,0,0,0.15);
+}
+
+.profile-image-container {
+    width: 360px;
+    height: 360px;
+    margin: 0 auto;
+    position: relative;
+    background: linear-gradient(135deg, #e8daf2, #f4c7ab);
     border-radius: 50%;
+    padding: 8px;
+    box-shadow: 
+        0 0 0 2px rgba(255, 255, 255, 0.8),
+        0 40px 120px rgba(0,0,0,0.15);
+    transition: all 0.4s ease;
+}
+
+.profile-image-container:hover {
+    transform: scale(1.02);
+    box-shadow: 
+        0 0 0 4px rgba(255, 255, 255, 0.9),
+        0 50px 140px rgba(91, 77, 238, 0.15);
 }
 
 /* SECTIONS */
