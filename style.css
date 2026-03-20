@@ -257,6 +257,16 @@ body {
     font-size: 14px;
 }
 
+.profile-image {
+    width: 350px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0 auto;
+    box-shadow: var(--shadow);
+    border: 8px solid var(--white);
+}
+
 /* SECTIONS */
 section {
     padding: 140px 0;
